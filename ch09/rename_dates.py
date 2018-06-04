@@ -18,16 +18,16 @@ def main():
     for amer_filename in os.listdir('.'):
         mo = american_date_regex.search(amer_filename)
 
-        if mo == None:
+        if mo is None:
             continue
 
         before_part = mo.group(1)
         month_part = mo.group(2)
-        day_part = mo.group(3)
-        year_part = mo.group(4)
-        after_part = mo.group(5)
+        day_part = mo.group(4)
+        year_part = mo.group(6)
+        after_part = mo.group(8)
 
-        euro_filename = before_part + day_part + '-' + month_part + '-' + year_part + after_part
+        euro_filename = str(before_part) + str(day_part) + '-' + str(month_part) + '-' + str(year_part) + str(after_part)
 
         abs_work_dir = os.path.abspath('.')
         amer_filename = os.path.join(abs_work_dir, amer_filename)
