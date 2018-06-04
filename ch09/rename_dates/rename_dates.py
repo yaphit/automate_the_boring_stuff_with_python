@@ -18,7 +18,8 @@ def main():
     for amer_filename in os.listdir('.'):
         mo = american_date_regex.search(amer_filename)
 
-        if mo is None:
+        if mo == None:
+            print(f'Ignored file...{amer_filename}')
             continue
 
         before_part = mo.group(1)
@@ -26,6 +27,7 @@ def main():
         day_part = mo.group(4)
         year_part = mo.group(6)
         after_part = mo.group(8)
+
 
         euro_filename = str(before_part) + str(day_part) + '-' + str(month_part) + '-' + str(year_part) + str(after_part)
 
